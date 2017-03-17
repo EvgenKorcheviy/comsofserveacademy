@@ -20,18 +20,23 @@ public class Main {
         AutoClubService service = new AutoClubService(autoClub);
         ConsoleReader cr = new ConsoleReader();
 
-
         User user = UserBuilder.buildUser("Evgen", "Korcheviy", "1998-12-21",
                 "0994016858", "korcheviy@gmail.com");
 
 
         Car car = CarBuilder.buildCar("AX2112BX", "Volgsvagen", "Golf",
                 "1998-12-21");
+
+
         user.addCar(car);
 
-        XMLWriter.writeUserToFile(user, "D:\\file.xml");
-        JSonWriter.writeUserToFile(user, "D:\\file.json");
+
+
+        //XMLWriter.writeUserToFile(user, "D:\\file.xml");
+        //JSonWriter.writeUserToFile(user, "D:\\file.json");
+
+
         System.out.println(XMLReader.readUserFromFile("D:\\file.xml"));
-        System.out.println(JSonReader.readUserFromFile("D:\\file.json"));
+       // System.out.println(JSonReader.readUserFromFile("D:\\file.json"));
     }
 }

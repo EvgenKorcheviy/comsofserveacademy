@@ -11,9 +11,10 @@ import java.util.*;
 /**
  * Created by Evgen on 14.03.2017.
  */
-
 @XmlRootElement
 public class User {
+
+
     private String id;
     private String name;
     private String surname;
@@ -22,18 +23,15 @@ public class User {
     private String email;
     private List<Car> cars;
 
-    public String getSurname() {
-        return surname;
-    }
 
-    public String getPhone() {
-        return phone;
-    }
 
     public User() {
         cars = new ArrayList<>();
         this.id = UUID.randomUUID().toString();
     }
+
+
+
 
     //setters
     public void setName(String name) {
@@ -64,8 +62,11 @@ public class User {
         this.id = id;
     }
 
-    //getters
 
+
+
+
+    //getters
     @XmlAttribute
     public String getId() {
         return id;
@@ -74,6 +75,16 @@ public class User {
     @XmlElement
     public String getName() {
         return name;
+    }
+
+    @XmlElement
+    public String getSurname() {
+        return surname;
+    }
+
+    @XmlElement
+    public String getPhone() {
+        return phone;
     }
 
     @XmlElement
@@ -86,15 +97,16 @@ public class User {
         return email;
     }
 
-    /*public List<Car> getCars() {
+    @XmlElement
+    public List<Car> getCars() {
         return cars;
-    }*/
-
-    //
-    public void addCar(Car car) {
-        cars.add(car);
-        car.setUser(this);
     }
+
+
+
+
+
+
 
     @Override
     public String toString() {
@@ -107,5 +119,12 @@ public class User {
                 ", email='" + email + '\'' +
                 ", cars=" + cars +
                 '}';
+    }
+
+
+
+    public void addCar(Car car) {
+        cars.add(car);
+        car.setUser(this);
     }
 }

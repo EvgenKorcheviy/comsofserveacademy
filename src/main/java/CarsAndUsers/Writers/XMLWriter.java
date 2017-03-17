@@ -26,6 +26,8 @@ public class XMLWriter {
             jaxbMarshaller.marshal(user, file);
             jaxbMarshaller.marshal(user, System.out);
         }
-        catch (JAXBException e){};
+        catch (JAXBException e) {
+            e.printStackTrace();
+        }
     }
 }

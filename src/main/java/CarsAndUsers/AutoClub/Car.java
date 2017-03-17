@@ -1,22 +1,22 @@
 package CarsAndUsers.AutoClub;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.time.LocalDate;
 
 /**
  * Created by Evgen on 14.03.2017.
  */
 
-
 public class Car {
+
+
     private String number;
     private String brand;
     private String model;
     private LocalDate year;
     private User user;
+
+
 
     public void setNumber(String number) {
         this.number = number;
@@ -39,28 +39,34 @@ public class Car {
     }
 
 
+
+    @XmlElement
     public String getNumber() {
         return number;
     }
 
-
+    @XmlElement
     public String getBrand() {
         return brand;
     }
 
-
+    @XmlElement
     public String getModel() {
         return model;
     }
 
-
+    @XmlElement
     public String getYear() {
         return year.toString();
     }
 
+
     public User getUser() {
         return user;
     }
+
+
+
 
     @Override
     public String toString() {
