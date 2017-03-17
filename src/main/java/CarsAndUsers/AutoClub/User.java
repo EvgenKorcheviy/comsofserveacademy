@@ -2,12 +2,15 @@ package CarsAndUsers.AutoClub;
 
 import CarsAndUsers.AutoClub.Car;
 
+import javax.xml.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.*;
 
 /**
  * Created by Evgen on 14.03.2017.
  */
+
+@XmlRootElement
 public class User {
     private String id;
     private String name;
@@ -55,11 +58,35 @@ public class User {
         this.cars = cars;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 
     //getters
+
+    @XmlAttribute
+    public String getId() {
+        return id;
+    }
+
+    @XmlElement
     public String getName() {
         return name;
     }
+
+    @XmlElement
+    public String getBirthday() {
+        return birthday.toString();
+    }
+
+    @XmlElement
+    public String getEmail() {
+        return email;
+    }
+
+    /*public List<Car> getCars() {
+        return cars;
+    }*/
 
     //
     public void addCar(Car car) {

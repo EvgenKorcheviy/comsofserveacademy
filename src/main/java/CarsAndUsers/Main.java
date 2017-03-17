@@ -1,11 +1,12 @@
-package CarsAndUsers.Test;
+package CarsAndUsers;
 
 
 import CarsAndUsers.AutoClub.AutoClub;
 import CarsAndUsers.AutoClub.AutoClubService;
+import CarsAndUsers.AutoClub.Builders.CarBuilder;
 import CarsAndUsers.AutoClub.Builders.UserBuilder;
+import CarsAndUsers.AutoClub.Car;
 import CarsAndUsers.AutoClub.User;
-import CarsAndUsers.Menu.ConsoleMenu;
 import CarsAndUsers.Readers.ConsoleReader;
 import CarsAndUsers.Writers.XMLWriter;
 
@@ -15,14 +16,16 @@ public class Main {
         AutoClubService service = new AutoClubService(autoClub);
         ConsoleReader cr = new ConsoleReader();
 
-        //ConsoleMenu.choose(autoClub, service, cr);
 
         User user = UserBuilder.buildUser("Evgen", "Korcheviy", "1998-12-21",
                 "0994016858", "korcheviy@gmail.com");
-        XMLWriter.writeUserToFile(user, "D:\\comsofserveacademy/first.xml");
-        System.out.println(user);
-        ConsoleMenu.choose(autoClub, service, cr);
-        System.out.println(user);
+
+
+        Car car = CarBuilder.buildCar("AX2112BX", "Volgsvagen", "Golf",
+                "1998-12-21");
+        user.addCar(car);
+
+        XMLWriter.writeUserToFile(user, "D:\\file.xml");
 
     }
 }
