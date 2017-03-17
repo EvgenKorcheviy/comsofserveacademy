@@ -50,7 +50,7 @@ public class UserBuilder {
         if(isDataCorrect(name, surname, birthday, phone, email)) {
             user.setName(name);
             user.setSurname(surname);
-            user.setBirthday(LocalDate.parse(birthday));
+            user.setBirthday(birthday);
             user.setPhone(phone);
             user.setEmail(email);
             return user;

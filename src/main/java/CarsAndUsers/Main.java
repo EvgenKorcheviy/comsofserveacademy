@@ -8,6 +8,10 @@ import CarsAndUsers.AutoClub.Builders.UserBuilder;
 import CarsAndUsers.AutoClub.Car;
 import CarsAndUsers.AutoClub.User;
 import CarsAndUsers.Readers.ConsoleReader;
+import CarsAndUsers.Readers.JSonReader;
+import CarsAndUsers.Readers.Reader;
+import CarsAndUsers.Readers.XMLReader;
+import CarsAndUsers.Writers.JSonWriter;
 import CarsAndUsers.Writers.XMLWriter;
 
 public class Main {
@@ -26,6 +30,8 @@ public class Main {
         user.addCar(car);
 
         XMLWriter.writeUserToFile(user, "D:\\file.xml");
-
+        JSonWriter.writeUserToFile(user, "D:\\file.json");
+        System.out.println(XMLReader.readUserFromFile("D:\\file.xml"));
+        System.out.println(JSonReader.readUserFromFile("D:\\file.json"));
     }
 }

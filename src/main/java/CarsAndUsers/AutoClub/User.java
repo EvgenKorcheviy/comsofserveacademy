@@ -1,10 +1,12 @@
 package CarsAndUsers.AutoClub;
 
 import CarsAndUsers.AutoClub.Car;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.xml.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.*;
+
 
 /**
  * Created by Evgen on 14.03.2017.
@@ -38,8 +40,8 @@ public class User {
         this.name = name;
     }
 
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
+    public void setBirthday(String birthday) {
+        this.birthday = LocalDate.parse(birthday);
     }
 
     public void setSurname(String surname) {
