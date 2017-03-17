@@ -32,7 +32,7 @@ public class Main {
 
 
 
-        //XMLWriter.writeUserToFile(user, "D:\\file.xml");
+        XMLWriter.writeUserToFile(user, "D:\\file.xml");
         //JSonWriter.writeUserToFile(user, "D:\\file.json");
 
 

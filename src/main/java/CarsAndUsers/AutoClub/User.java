@@ -97,7 +97,7 @@ public class User {
         return email;
     }
 
-    @XmlElement
+
     public List<Car> getCars() {
         return cars;
     }

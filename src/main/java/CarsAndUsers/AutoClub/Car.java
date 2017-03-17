@@ -60,7 +60,7 @@ public class Car {
         return year.toString();
     }
 
-
+    @XmlTransient
     public User getUser() {
         return user;
     }
