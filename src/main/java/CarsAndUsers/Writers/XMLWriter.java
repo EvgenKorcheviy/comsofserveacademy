@@ -1,6 +1,7 @@
 package CarsAndUsers.Writers;
 
 
+import CarsAndUsers.AutoClub.AutoClub;
 import CarsAndUsers.AutoClub.User;
 
 import javax.xml.bind.JAXBContext;
@@ -14,17 +15,19 @@ import java.io.File;
  */
 public class XMLWriter {
 
-    public static void writeUserToFile(User user, String fileName) {
+    public static void writeAutoClubToFile(AutoClub autoClub, String fileName) {
         try {
             File file = new File(fileName);
 
-            JAXBContext jaxbContext = JAXBContext.newInstance(User.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(AutoClub.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            jaxbMarshaller.marshal(user, file);
-            jaxbMarshaller.marshal(user, System.out);
+            jaxbMarshaller.marshal(autoClub, file);
+            jaxbMarshaller.marshal(autoClub, System.out);
+
+
         }
         catch (JAXBException e) {
             e.printStackTrace();

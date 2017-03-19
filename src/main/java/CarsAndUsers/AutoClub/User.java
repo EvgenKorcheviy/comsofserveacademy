@@ -11,7 +11,7 @@ import java.util.*;
 /**
  * Created by Evgen on 14.03.2017.
  */
-@XmlRootElement
+
 public class User {
 
 

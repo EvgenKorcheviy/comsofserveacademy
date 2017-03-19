@@ -1,6 +1,7 @@
 package CarsAndUsers.Readers;
 
 
+import CarsAndUsers.AutoClub.AutoClub;
 import CarsAndUsers.AutoClub.Car;
 import CarsAndUsers.AutoClub.User;
 import com.sun.jmx.remote.internal.Unmarshal;
@@ -24,16 +25,16 @@ import java.util.List;
  * Created by Evgen on 16.03.2017.
  */
 public class XMLReader {
-    public static User readUserFromFile(String filename) {
+    public static AutoClub readAutoClubFromFile(String filename) {
 
         try {
             File file = new File(filename);
-            JAXBContext jaxbContext = JAXBContext.newInstance(User.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(AutoClub.class);
 
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            User user = (User) unmarshaller.unmarshal(file);
+            AutoClub autoClub = (AutoClub) unmarshaller.unmarshal(file);
 
-            return user;
+            return autoClub;
 
         } catch (JAXBException e) {
             e.printStackTrace();

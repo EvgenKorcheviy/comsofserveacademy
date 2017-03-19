@@ -29,14 +29,14 @@ public class Main {
 
 
         user.addCar(car);
+        service.addUser(user);
 
 
+        XMLWriter.writeAutoClubToFile(autoClub, "D:\\file.xml");
+        System.out.println(XMLReader.readAutoClubFromFile("D:\\file.xml"));
 
-        XMLWriter.writeUserToFile(user, "D:\\file.xml");
+
         //JSonWriter.writeUserToFile(user, "D:\\file.json");
-
-
-        System.out.println(XMLReader.readUserFromFile("D:\\file.xml"));
-       // System.out.println(JSonReader.readUserFromFile("D:\\file.json"));
+        // System.out.println(JSonReader.readUserFromFile("D:\\file.json"));
     }
 }
