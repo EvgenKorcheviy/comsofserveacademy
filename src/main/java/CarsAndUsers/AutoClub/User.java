@@ -14,7 +14,7 @@ import java.util.*;
 
 public class User {
 
-
+    @JsonView
     private String id;
     private String name;
     private String surname;

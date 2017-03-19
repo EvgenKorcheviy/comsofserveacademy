@@ -32,11 +32,11 @@ public class Main {
         service.addUser(user);
 
 
-        XMLWriter.writeAutoClubToFile(autoClub, "D:\\file.xml");
-        System.out.println(XMLReader.readAutoClubFromFile("D:\\file.xml"));
+        //XMLWriter.writeAutoClubToFile(autoClub, "D:\\file.xml");
+        //System.out.println(XMLReader.readAutoClubFromFile("D:\\file.xml"));
 
 
-        //JSonWriter.writeUserToFile(user, "D:\\file.json");
+        JSonWriter.writeAutoclubToFile(autoClub, "D:\\file.json");
         // System.out.println(JSonReader.readUserFromFile("D:\\file.json"));
     }
 }

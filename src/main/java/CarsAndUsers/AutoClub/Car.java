@@ -1,5 +1,9 @@
 package CarsAndUsers.AutoClub;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.google.gson.annotations.Expose;
+import com.sun.glass.ui.View;
+
 import javax.xml.bind.annotation.*;
 import java.time.LocalDate;
 
@@ -14,6 +18,7 @@ public class Car {
     private String brand;
     private String model;
     private LocalDate year;
+    @Expose
     private User user;
 
 
