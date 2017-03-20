@@ -27,7 +27,7 @@ public class JSonWriter implements Writer {
 
             Marshaller marshaller = jc.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(autoClub, System.out);
+            marshaller.marshal(autoClub, new File(filename));
 
         }
         catch (JAXBException e) {

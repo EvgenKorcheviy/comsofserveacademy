@@ -9,6 +9,8 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,10 +27,10 @@ public class JSonReader implements Reader {
 
             JAXBContext jc = JAXBContext.newInstance(new Class[] {AutoClub.class, ObjectFactory.class}, properties);
 
-            StreamSource json = new StreamSource(new StringReader("{\"employee\":{\"id\":1,\"name\":\"Ashraf\",\"skills\":[\"java\",\"sql\"]}}"));
+            StreamSource json = new StreamSource(new File(filename));
 
             Unmarshaller unmarshaller = jc.createUnmarshaller();
-            AutoClub autoClub = (AutoClub) unmarshaller.unmarshal(json, AutoClub.class).getValue();
+            AutoClub autoClub = unmarshaller.unmarshal(json, AutoClub.class).getValue();
 
             return autoClub;
         } catch (JAXBException e) {

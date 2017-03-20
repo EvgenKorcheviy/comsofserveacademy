@@ -38,6 +38,7 @@ public class Main {
 
 
         JSonWriter.writeAutoClubToFile(autoClub, "D:\\comsofserveacademy\\src\\main\\resources\\file.json");
-        System.out.println(JSonReader.readAutoClubFromFile("D:\\comsofserveacademy\\src\\main\\resources\\file.json"));
+        AutoClub cl = JSonReader.readAutoClubFromFile("D:\\comsofserveacademy\\src\\main\\resources\\file.json");
+        System.out.println(cl);
     }
 }
