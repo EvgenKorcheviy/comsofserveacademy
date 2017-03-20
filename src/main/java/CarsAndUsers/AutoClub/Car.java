@@ -1,10 +1,5 @@
 package CarsAndUsers.AutoClub;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonView;
-import com.google.gson.annotations.Expose;
-import com.sun.glass.ui.View;
 
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;

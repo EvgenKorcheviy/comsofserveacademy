@@ -1,11 +1,7 @@
 package CarsAndUsers.AutoClub;
 
 import CarsAndUsers.AutoClub.Car;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonView;
 import org.joda.time.LocalDate;
-
 import javax.xml.bind.annotation.*;
 import java.util.*;
 
