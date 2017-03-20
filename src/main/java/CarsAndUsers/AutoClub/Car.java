@@ -1,11 +1,13 @@
 package CarsAndUsers.AutoClub;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.google.gson.annotations.Expose;
 import com.sun.glass.ui.View;
 
 import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -59,13 +61,13 @@ public class Car {
     public String getBrand() {
         return brand;
     }
-    @XmlElement
     @JsonView
+    @XmlElement
     public String getModel() {
         return model;
     }
+
     @XmlElement
-    @JsonView
     public String getYear() {
         return year.toString();
     }
@@ -75,6 +77,10 @@ public class Car {
         return user;
     }
 
+    @JsonView
+    public void setYear(String year) {
+        this.year = LocalDate.parse(year);
+    }
 
 
 

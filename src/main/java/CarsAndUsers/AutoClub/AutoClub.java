@@ -30,4 +30,10 @@ public class AutoClub {
         this.users = users;
     }
 
+    @Override
+    public String toString() {
+        return "AutoClub{" +
+                "users=" + users +
+                '}';
+    }
 }
