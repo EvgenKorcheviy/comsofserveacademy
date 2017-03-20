@@ -20,7 +20,7 @@ import java.io.IOException;
  * Created by Evgen on 17.03.2017.
  */
 public class XmlWriter implements Writer{
-    public static void writeAutoclubToFile(AutoClub autoClub, String filename) {
+    public static void writeAutoClubToFile(AutoClub autoClub, String filename) {
         try {
             File file = new File(filename);
 
