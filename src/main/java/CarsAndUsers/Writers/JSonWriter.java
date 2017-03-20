@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * Created by Evgen on 17.03.2017.
  */
-public class JSonWriter {
+public class JSonWriter implements Writer{
     public static void writeAutoclubToFile(AutoClub autoClub, String filename) {
         ObjectMapper mapper = new ObjectMapper();
 

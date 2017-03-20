@@ -13,7 +13,7 @@ import java.io.File;
 /**
  * Created by Evgen on 16.03.2017.
  */
-public class XMLWriter {
+public class XMLWriter implements Writer{
 
     public static void writeAutoClubToFile(AutoClub autoClub, String fileName) {
         try {

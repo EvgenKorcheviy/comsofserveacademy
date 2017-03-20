@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * Created by Evgen on 16.03.2017.
  */
-public class XMLReader {
+public class XMLReader implements Reader {
     public static AutoClub readAutoClubFromFile(String filename) {
 
         try {
