@@ -12,4 +12,6 @@ public interface Reader {
     public String readSurname();
     public String readPhone();
     public String readEmail();
+
+
 }

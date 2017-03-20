@@ -17,16 +17,12 @@ import java.io.IOException;
  */
 public class JSonWriter {
     public static void writeAutoclubToFile(AutoClub autoClub, String filename) {
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        ObjectMapper mapper = new ObjectMapper();
 
-        try (FileWriter writer = new FileWriter("D:\\staff.json")) {
-
-            gson.toJson(autoClub, writer);
-            writer.close();
-
+        try {
+            mapper.writeValue(new File(filename), autoClub);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        gson.toJson(autoClub, System.out);
     }
 }

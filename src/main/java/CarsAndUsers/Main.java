@@ -15,7 +15,9 @@ import CarsAndUsers.Writers.JSonWriter;
 import CarsAndUsers.Writers.XMLWriter;
 
 public class Main {
+
     public static void main(String[] args) {
+
         AutoClub autoClub = new AutoClub();
         AutoClubService service = new AutoClubService(autoClub);
         ConsoleReader cr = new ConsoleReader();
@@ -32,11 +34,11 @@ public class Main {
         service.addUser(user);
 
 
-        //XMLWriter.writeAutoClubToFile(autoClub, "D:\\file.xml");
-        //System.out.println(XMLReader.readAutoClubFromFile("D:\\file.xml"));
+        XMLWriter.writeAutoClubToFile(autoClub, "D:\\file.xml");
+        System.out.println(XMLReader.readAutoClubFromFile("D:\\file.xml"));
 
 
         JSonWriter.writeAutoclubToFile(autoClub, "D:\\file.json");
-        // System.out.println(JSonReader.readUserFromFile("D:\\file.json"));
+        System.out.println(JSonReader.readAutoClubFromFile("D:\\file.json"));
     }
 }

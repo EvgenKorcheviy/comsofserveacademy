@@ -25,8 +25,6 @@ public class XMLWriter {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
             jaxbMarshaller.marshal(autoClub, file);
-            jaxbMarshaller.marshal(autoClub, System.out);
-
 
         }
         catch (JAXBException e) {

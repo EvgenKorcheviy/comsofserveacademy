@@ -1,5 +1,6 @@
 package CarsAndUsers.AutoClub;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.google.gson.annotations.Expose;
 import com.sun.glass.ui.View;
@@ -15,10 +16,13 @@ public class Car {
 
 
     private String number;
+
     private String brand;
+
     private String model;
+
     private LocalDate year;
-    @Expose
+
     private User user;
 
 
@@ -46,25 +50,26 @@ public class Car {
 
 
     @XmlElement
+    @JsonView
     public String getNumber() {
         return number;
     }
-
     @XmlElement
+    @JsonView
     public String getBrand() {
         return brand;
     }
-
     @XmlElement
+    @JsonView
     public String getModel() {
         return model;
     }
-
     @XmlElement
+    @JsonView
     public String getYear() {
         return year.toString();
     }
-
+    @JsonIgnore
     @XmlTransient
     public User getUser() {
         return user;

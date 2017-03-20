@@ -1,6 +1,7 @@
 package CarsAndUsers.AutoClub;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.util.ViewMatcher;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlList;
@@ -15,7 +16,7 @@ import java.util.List;
 @XmlRootElement
 public class AutoClub {
 
-    @JsonView()
+    @JsonView
     private List<User> users;
 
     public AutoClub() {users = new ArrayList<>();}
