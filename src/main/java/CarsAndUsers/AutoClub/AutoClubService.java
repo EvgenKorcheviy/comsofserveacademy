@@ -9,11 +9,12 @@ import CarsAndUsers.Comparators.ReCompareByPhone;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Evgen on 15.03.2017.
  */
-public class AutoClubService {
+public class    AutoClubService {
 
     private AutoClub autoClub;
 
@@ -48,7 +49,9 @@ public class AutoClubService {
 
     public List<User> findByFullname(String name) {
         List<User> users = autoClub.getUsers();
-        if (!users.isEmpty()){
+        return users.stream().filter(user -> user.getName().toLowerCase().
+                contains(name.toLowerCase())).collect(Collectors.toList());
+        /*if (!users.isEmpty()){
             List<User> linkedList = new LinkedList<>();
             for (User u : users) {
                 if (u.getName().toLowerCase().contains(name.toLowerCase()))
@@ -56,7 +59,7 @@ public class AutoClubService {
             }
             return linkedList;
         }
-        return null;
+        return null;*/
     }
 
     /*public User getByName(String name) {return null;}
