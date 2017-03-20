@@ -3,7 +3,7 @@ package CarsAndUsers.AutoClub.Builders;
 
 import CarsAndUsers.AutoClub.User;
 
-import java.time.LocalDate;
+import org.joda.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -50,7 +50,7 @@ public class UserBuilder {
         if(isDataCorrect(name, surname, birthday, phone, email)) {
             user.setName(name);
             user.setSurname(surname);
-            user.setBirthday(birthday);
+            user.setBirthday(LocalDate.parse(birthday));
             user.setPhone(phone);
             user.setEmail(email);
             return user;

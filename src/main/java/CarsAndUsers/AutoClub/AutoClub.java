@@ -16,11 +16,9 @@ import java.util.List;
 @XmlRootElement
 public class AutoClub {
 
-    @JsonView
     private List<User> users;
 
     public AutoClub() {users = new ArrayList<>();}
-
 
     public List<User> getUsers() {
         return users;

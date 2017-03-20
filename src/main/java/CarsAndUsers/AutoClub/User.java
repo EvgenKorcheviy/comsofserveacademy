@@ -4,9 +4,9 @@ import CarsAndUsers.AutoClub.Car;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonView;
+import org.joda.time.LocalDate;
 
 import javax.xml.bind.annotation.*;
-import java.time.LocalDate;
 import java.util.*;
 
 
@@ -41,22 +41,23 @@ public class User {
 
 
     //setters
+    @XmlElement
     public void setName(String name) {
         this.name = name;
     }
-
-    public void setBirthday(String birthday) {
-        this.birthday = LocalDate.parse(birthday);
+    @XmlElement
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
-
+    @XmlElement
     public void setSurname(String surname) {
         this.surname = surname;
     }
-
+    @XmlElement
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
+    @XmlElement
     public void setEmail(String email) {
         this.email = email;
     }
@@ -64,7 +65,7 @@ public class User {
     public void setCars(List<Car> cars) {
         this.cars = cars;
     }
-
+    @XmlAttribute
     public void setId(String id) {
         this.id = id;
     }
@@ -74,38 +75,30 @@ public class User {
 
 
     //getters
-    @JsonView
-    @XmlAttribute
     public String getId() {
         return id;
     }
-    @JsonView
-    @XmlElement
+
     public String getName() {
         return name;
     }
-    @JsonView
-    @XmlElement
+
     public String getSurname() {
         return surname;
     }
-    @JsonView
-    @XmlElement
+
     public String getPhone() {
         return phone;
     }
-    @JsonView
-    @XmlElement
-    public String getBirthday() {
-        return birthday.toString();
+
+    public LocalDate getBirthday() {
+        return birthday;
     }
-    @JsonView
-    @XmlElement
+
     public String getEmail() {
         return email;
     }
 
-    @JsonView
     public List<Car> getCars() {
         return cars;
     }
