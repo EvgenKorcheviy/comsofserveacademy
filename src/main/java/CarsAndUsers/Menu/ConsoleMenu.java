@@ -6,6 +6,10 @@ import CarsAndUsers.AutoClub.AutoClubService;
 import CarsAndUsers.AutoClub.Builders.UserBuilder;
 import CarsAndUsers.AutoClub.User;
 import CarsAndUsers.Readers.ConsoleReader;
+import CarsAndUsers.Readers.JSonReader;
+import CarsAndUsers.Readers.XmlReader;
+import CarsAndUsers.Writers.JSonWriter;
+import CarsAndUsers.Writers.XmlWriter;
 
 import java.util.Scanner;
 
@@ -25,7 +29,11 @@ public class ConsoleMenu {
         System.out.println("6.Revers sort Users by name.");
         System.out.println("7.Revers sort Users by phone.");
         System.out.println("8.Find User by phone");
-        System.out.println("9.Exit");
+        System.out.println("9.Write Autoclub to XML File");
+        System.out.println("10.Write AutoClub to JSon File");
+        System.out.println("11.Read AutoClub from XML File");
+        System.out.println("12.Read AutoClub from JSon File");
+        System.out.println("13.Exit");
 
 
 
@@ -90,6 +98,33 @@ public class ConsoleMenu {
             choose(autoClub, service, cr);
         }
         if (i == 9) {
+            System.out.println("Enter a filename");
+            String filename = new Scanner(System.in).nextLine();
+            XmlWriter.writeAutoClubToFile(autoClub, filename);
+            choose(autoClub, service, cr);
+
+        }
+        if (i == 10){
+            System.out.println("Enter a filename");
+            String filename = new Scanner(System.in).nextLine();
+            JSonWriter.writeAutoClubToFile(autoClub, filename);
+            choose(autoClub, service, cr);
+
+        }
+        if (i == 11){
+            System.out.println("Enter a filename");
+            String filename = new Scanner(System.in).nextLine();
+            autoClub = XmlReader.readAutoClubFromFile(filename);
+            choose(autoClub, service, cr);
+
+        }
+        if (i == 12){
+            System.out.println("Enter a filename");
+            String filename = new Scanner(System.in).nextLine();
+            choose(autoClub, service, cr);
+
+        }
+        if (i == 13) {
             return;
         }
     }

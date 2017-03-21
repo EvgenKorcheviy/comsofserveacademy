@@ -7,6 +7,7 @@ import CarsAndUsers.AutoClub.Builders.CarBuilder;
 import CarsAndUsers.AutoClub.Builders.UserBuilder;
 import CarsAndUsers.AutoClub.Car;
 import CarsAndUsers.AutoClub.User;
+import CarsAndUsers.Menu.ConsoleMenu;
 import CarsAndUsers.Readers.ConsoleReader;
 import CarsAndUsers.Readers.JSonReader;
 import CarsAndUsers.Readers.XmlReader;
@@ -33,12 +34,14 @@ public class Main {
         user.addCar(car);
         service.addUser(user);
 
-        //XmlWriter.writeAutoClubToFile(autoClub, "D:\\comsofserveacademy\\src\\main\\resources\\file.xml");
-        //System.out.println(XmlReader.readAutoClubFromFile("D:\\comsofserveacademy\\src\\main\\resources\\file.xml"));
+        ConsoleMenu.choose(autoClub, service, cr);
+
+        /*XmlWriter.writeAutoClubToFile(autoClub, "D:\\comsofserveacademy\\src\\main\\resources\\file.xml");
+        System.out.println(XmlReader.readAutoClubFromFile("D:\\comsofserveacademy\\src\\main\\resources\\file.xml"));
 
 
         JSonWriter.writeAutoClubToFile(autoClub, "D:\\comsofserveacademy\\src\\main\\resources\\file.json");
         AutoClub cl = JSonReader.readAutoClubFromFile("D:\\comsofserveacademy\\src\\main\\resources\\file.json");
-        System.out.println(cl);
+        System.out.println(cl);*/
     }
 }
