@@ -67,7 +67,7 @@ public class    AutoClubService {
 
 
     //Adding
-    public void addUser(User user){
+    public  void addUser(User user){
         List<User> users = autoClub.getUsers();
         users.add(user);
         autoClub.setUsers(users);

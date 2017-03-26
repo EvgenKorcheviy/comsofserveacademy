@@ -1,22 +1,7 @@
 package FirstTask;
 
 
-import FirstTask.AutoClub.AutoClub;
-import FirstTask.AutoClub.AutoClubService;
-import FirstTask.AutoClub.Builders.CarBuilder;
-import FirstTask.AutoClub.Builders.UserBuilder;
-import FirstTask.AutoClub.Car;
-import FirstTask.AutoClub.User;
 import FirstTask.IO.DataBaseManagement;
-import FirstTask.IO.Readers.DataBaseReader;
-import FirstTask.IO.Readers.JSonReader;
-import FirstTask.IO.Readers.XmlReader;
-import FirstTask.IO.Writers.JSonWriter;
-import FirstTask.IO.Writers.XmlWriter;
-import FirstTask.Menu.ConsoleMenu;
-import FirstTask.IO.Readers.ConsoleReader;
-
-import java.sql.DatabaseMetaData;
 
 
 public class Main {

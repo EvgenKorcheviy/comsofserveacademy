@@ -1,4 +1,4 @@
-package FirstTask.IO.Readers;
+package FirstTask.IO;
 
 import FirstTask.AutoClub.AutoClub;
 import FirstTask.AutoClub.AutoClubService;
@@ -117,5 +117,7 @@ public class DataBaseReader {
         return readUserByField(connection, "name", value);
     }
 
-    
+    public static List<User> readUsersFromDatabaseBySurname(Connection connection, String value) {
+        return readUserByField(connection, "surname", value);
+    }
 }
