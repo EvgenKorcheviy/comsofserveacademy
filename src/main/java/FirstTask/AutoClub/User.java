@@ -1,6 +1,5 @@
-package CarsAndUsers.AutoClub;
+package FirstTask.AutoClub;
 
-import CarsAndUsers.AutoClub.Car;
 import org.joda.time.LocalDate;
 import javax.xml.bind.annotation.*;
 import java.util.*;
@@ -27,6 +26,7 @@ public class User {
     private List<Car> cars;
 
 
+    //Constructor without param
 
     public User() {
         cars = new ArrayList<>();
@@ -36,7 +36,8 @@ public class User {
 
 
 
-    //setters
+    //Setters
+
     @XmlElement
     public void setName(String name) {
         this.name = name;
@@ -70,7 +71,8 @@ public class User {
 
 
 
-    //getters
+    //Getters
+
     public String getId() {
         return id;
     }
@@ -100,6 +102,7 @@ public class User {
     }
 
 
+    //to String method
 
     @Override
     public String toString() {
@@ -115,6 +118,8 @@ public class User {
     }
 
 
+
+    //Add Car to collection of cars
 
     public void addCar(Car car) {
         cars.add(car);

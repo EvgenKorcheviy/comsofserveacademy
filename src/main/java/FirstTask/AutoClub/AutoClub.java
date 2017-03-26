@@ -1,10 +1,5 @@
-package CarsAndUsers.AutoClub;
+package FirstTask.AutoClub;
 
-import com.fasterxml.jackson.annotation.JsonView;
-import com.fasterxml.jackson.databind.util.ViewMatcher;
-
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,16 +13,25 @@ public class AutoClub {
 
     private List<User> users;
 
+
+    //Constructor without params
     public AutoClub() {users = new ArrayList<>();}
 
+
+    //Getter
     public List<User> getUsers() {
         return users;
     }
 
+
+    //Setter
     public void setUsers(List<User> users) {
         this.users = users;
     }
 
+
+
+    //toString method
     @Override
     public String toString() {
         return "AutoClub{" +

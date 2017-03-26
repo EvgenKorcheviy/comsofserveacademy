@@ -1,7 +1,7 @@
-package CarsAndUsers.Comparators;
+package FirstTask.Comparators;
 
 
-import CarsAndUsers.AutoClub.User;
+import FirstTask.AutoClub.User;
 
 /**
  * Created by Evgen on 15.03.2017.

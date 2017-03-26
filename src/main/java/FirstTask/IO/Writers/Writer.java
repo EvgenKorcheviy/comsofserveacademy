@@ -1,6 +1,6 @@
-package CarsAndUsers.Writers;
+package FirstTask.IO.Writers;
 
-import CarsAndUsers.AutoClub.AutoClub;
+import FirstTask.AutoClub.AutoClub;
 
 /**
  * Created by Evgen on 20.03.2017.

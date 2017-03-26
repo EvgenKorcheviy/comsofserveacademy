@@ -1,7 +1,6 @@
-package CarsAndUsers.Writers;
+package FirstTask.IO.Writers;
 
-import CarsAndUsers.AutoClub.AutoClub;
-import CarsAndUsers.AutoClub.User;
+import FirstTask.AutoClub.AutoClub;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

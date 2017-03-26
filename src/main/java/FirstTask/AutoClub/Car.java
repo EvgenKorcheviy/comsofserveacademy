@@ -1,8 +1,8 @@
-package CarsAndUsers.AutoClub;
+package FirstTask.AutoClub;
 
 
 import javax.xml.bind.annotation.*;
-import java.io.Serializable;
+
 import org.joda.time.LocalDate;
 
 /**
@@ -22,6 +22,8 @@ public class Car {
 
     private User user;
 
+
+    //Setters
 
     @XmlAttribute
     public void setNumber(String number) {
@@ -46,6 +48,8 @@ public class Car {
 
 
 
+    //Getters
+
     public String getNumber() {
         return number;
     }
@@ -68,6 +72,7 @@ public class Car {
 
 
 
+    //toString method
 
     @Override
     public String toString() {

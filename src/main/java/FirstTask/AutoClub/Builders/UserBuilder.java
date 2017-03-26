@@ -1,7 +1,7 @@
-package CarsAndUsers.AutoClub.Builders;
+package FirstTask.AutoClub.Builders;
 
 
-import CarsAndUsers.AutoClub.User;
+import FirstTask.AutoClub.User;
 
 import org.joda.time.LocalDate;
 import java.util.regex.Matcher;
@@ -16,8 +16,7 @@ public class UserBuilder {
     private static boolean isCorrect(String regEx, String data) {
         Pattern p = Pattern.compile(regEx);
         Matcher m = p.matcher(data);
-        if (m.matches()) return true;
-        return false;
+        return m.matches();
     }
 
     public static boolean isCorectEmail(String email) {
@@ -44,6 +43,9 @@ public class UserBuilder {
         return false;
     }
 
+
+
+    //Method return User is data is correct
     public static User buildUser(String name, String surname, String birthday,
                                  String phone, String email) {
         User user = new User();

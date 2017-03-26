@@ -1,15 +1,14 @@
-package CarsAndUsers.Menu;
+package FirstTask.Menu;
 
 
-import CarsAndUsers.AutoClub.AutoClub;
-import CarsAndUsers.AutoClub.AutoClubService;
-import CarsAndUsers.AutoClub.Builders.UserBuilder;
-import CarsAndUsers.AutoClub.User;
-import CarsAndUsers.Readers.ConsoleReader;
-import CarsAndUsers.Readers.JSonReader;
-import CarsAndUsers.Readers.XmlReader;
-import CarsAndUsers.Writers.JSonWriter;
-import CarsAndUsers.Writers.XmlWriter;
+import FirstTask.AutoClub.AutoClub;
+import FirstTask.AutoClub.AutoClubService;
+import FirstTask.AutoClub.Builders.UserBuilder;
+import FirstTask.AutoClub.User;
+import FirstTask.IO.Readers.ConsoleReader;
+import FirstTask.IO.Readers.XmlReader;
+import FirstTask.IO.Writers.JSonWriter;
+import FirstTask.IO.Writers.XmlWriter;
 
 import java.util.Scanner;
 

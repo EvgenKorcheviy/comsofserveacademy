@@ -1,10 +1,10 @@
-package CarsAndUsers.Test;
+package FirstTask.Test;
 
 
 
-import CarsAndUsers.AutoClub.Builders.CarBuilder;
-import CarsAndUsers.AutoClub.Car;
-import CarsAndUsers.AutoClub.User;
+import FirstTask.AutoClub.Builders.CarBuilder;
+import FirstTask.AutoClub.Car;
+import FirstTask.AutoClub.User;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

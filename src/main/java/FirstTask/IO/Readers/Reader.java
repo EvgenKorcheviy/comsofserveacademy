@@ -1,6 +1,6 @@
-package CarsAndUsers.Readers;
+package FirstTask.IO.Readers;
 
-import CarsAndUsers.AutoClub.AutoClub;
+import FirstTask.AutoClub.AutoClub;
 
 /**
  * Created by Evgen on 15.03.2017.

@@ -1,8 +1,8 @@
-package CarsAndUsers.Comparators;
+package FirstTask.Comparators;
 
 
 
-import CarsAndUsers.AutoClub.User;
+import FirstTask.AutoClub.User;
 
 import java.util.Comparator;
 
