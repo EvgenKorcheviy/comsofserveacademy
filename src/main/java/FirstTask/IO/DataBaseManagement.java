@@ -107,4 +107,14 @@ public class DataBaseManagement {
         return false;
     }
 
+    public static boolean closeConnection(Connection connection) {
+        try {
+            connection.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }

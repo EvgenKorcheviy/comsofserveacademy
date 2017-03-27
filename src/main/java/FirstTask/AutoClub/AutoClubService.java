@@ -6,6 +6,7 @@ import FirstTask.Comparators.CompareByPhone;
 import FirstTask.Comparators.ReCompareByName;
 import FirstTask.Comparators.ReCompareByPhone;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,6 +23,8 @@ public class    AutoClubService {
     public AutoClubService(AutoClub club) {
         this.autoClub = club;
     }
+
+
 
 
 
@@ -53,17 +56,33 @@ public class    AutoClubService {
 
 
 
+
+
     //Find methods
-    public List<User> findByFullname(String name) {
+    public List<User> findUsersByName(String name) {
         List<User> users = autoClub.getUsers();
         return users.stream().filter(user -> user.getName().toLowerCase().
                 contains(name.toLowerCase())).collect(Collectors.toList());
     }
 
-    /*public User getByName(String name) {return null;}
-    public User getByPhone(String phone){return null;}
-    public User getUseByNumber(String number) {return null;}
-    */
+    public User findUserById(String id) {
+        List<User> users = autoClub.getUsers();
+        return users.stream().filter(user -> user.getId().equals(id)).collect(Collectors.toList()).get(0);
+    }
+
+    public List<User> findUsersByBirthday(LocalDate birthday) {
+        List<User> users = autoClub.getUsers();
+        return users.stream().filter(user -> user.getBirthday().equals(birthday)).collect(Collectors.toList());
+    }
+
+    public List<User> findUsersBySurname(String surname) {
+        List<User> users = autoClub.getUsers();
+        return users.stream().filter(user -> user.getSurname().contains(surname.toLowerCase())).collect(Collectors.toList());
+    }
+
+
+
+
 
 
     //Adding
