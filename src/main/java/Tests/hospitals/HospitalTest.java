@@ -54,42 +54,25 @@ public class HospitalTest {
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("1111");
         driver.findElement(By.id("loginSubmit")).click();
-        int actual = 8;//driver.findElements(By.className("cLass1")).size();
-        int expected = 7;//testDAO.getCountOfUsers();
-        assertEquals(actual, expected);
 
-        /*isPopUpFunctional(10);
+        isPopUpFunctional(10);
         isPopUpFunctional(15);
         isPopUpFunctional(20);
         isPopUpFunctional(30);
         isPopUpFunctional(40);
-        isPopUpFunctional(50);*/
-        //System.out.println(testDAO.getCountOfUsers());
+        isPopUpFunctional(50);
     }
 
     private void isPopUpFunctional(int number) {
-        if (testDAO.getCountOfUsers() > number) {
-            driver.findElement(By.id("userPerPage")).click();
-            driver.findElement(By.cssSelector(".form-control option[value=\"" +number + "\"]")).click();
-            driver.findElement(By.id("searchButton")).click();
-            for (int second = 0; ; second++) {
-                if (second > 10) {
-                    System.out.println("smth wrong");
-                    break;
-                }
-                try {
-                    if (new Integer(number).toString().equals(driver.findElement(By.cssSelector("table tbody tr:last-child td:first-child")).getText()))
-                        break;
-                } catch (Exception e) {
-                }
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        System.out.println(testDAO.getCountOfUsers());
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        int expected = 0;
+        if (testDAO.getCountOfUsers() > number) expected = number;
+        else expected = testDAO.getCountOfUsers();
+        driver.findElement(By.id("userPerPage")).click();
+        driver.findElement(By.cssSelector(".form-control option[value=\"" +number + "\"]")).click();
+        driver.findElement(By.id("searchButton")).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        int actual = new Integer(driver.findElement(By.cssSelector("table tbody tr:last-child td:first-child")).getText());
     }
 
 
