@@ -73,6 +73,7 @@ public class HospitalTest {
         driver.findElement(By.id("searchButton")).click();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         int actual = new Integer(driver.findElement(By.cssSelector("table tbody tr:last-child td:first-child")).getText());
+        assertEquals(actual, expected);
     }
 
 

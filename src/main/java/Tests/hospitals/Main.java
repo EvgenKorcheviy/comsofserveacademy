@@ -7,6 +7,6 @@ public class Main {
     public static void main(String[] args) {
         TestDAO testDAO = new TestDAO();
         //System.out.println(testDAO);
-        //System.out.println(testDAO.getCountOfUsers());
+        System.out.println(testDAO.getCountOfUsers());
     }
 }

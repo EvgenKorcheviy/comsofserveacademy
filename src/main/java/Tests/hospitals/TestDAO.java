@@ -66,7 +66,7 @@ public class TestDAO {
     public int getCountOfUsers (){
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM user WHERE enable = TRUE");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM users WHERE enabled = TRUE");
             int i = 0;
             while (resultSet.next()) i++;
 
