@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -78,5 +80,26 @@ public class TestDAO {
         return 0;
     }
 
+
+    public List<String> getUsersFromTable(){
+        return null;
+    }
+    public List<String> getUsersEmailsFromDatabase() {
+        List<String> result = new LinkedList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM user WHERE enabled = TRUE ");
+            while (resultSet.next()) result.add(resultSet.getString("email"));
+            return result;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    /*public static List<User> getUsersFromDatabase(){
+        return null;
+    }*/
 
 }

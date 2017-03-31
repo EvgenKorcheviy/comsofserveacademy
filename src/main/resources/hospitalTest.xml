@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name = "beforeTestParametrsSute" parallel = "false">
+    <parameter name="url" value="https://localhost:8443/HospitalSeeker/"></parameter>
+    <parameter name="countOfUsers" value="15"></parameter>
+        <test name = "HospitalTest">
+            <classes>
+                <class name="Tests.hospitals.HospitalTest"></class>
+
+            </classes>
+        </test>
+</suite>
