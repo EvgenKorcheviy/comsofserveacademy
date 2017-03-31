@@ -88,7 +88,7 @@ public class TestDAO {
         List<String> result = new LinkedList<>();
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM user WHERE enabled = TRUE ");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM users WHERE enabled = TRUE ORDER BY email");
             while (resultSet.next()) result.add(resultSet.getString("email"));
             return result;
         } catch (SQLException e) {

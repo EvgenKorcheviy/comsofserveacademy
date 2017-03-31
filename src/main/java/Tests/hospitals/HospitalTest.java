@@ -25,7 +25,6 @@ public class HospitalTest extends Tests.hospitals.BeforeTest {
         driver.findElement(By.id("userPerPage")).click();
         driver.findElement(By.cssSelector(".form-control option[value=\"" + expected + "\"]")).click();
         driver.findElement(By.id("searchButton")).click();
-
         int actual = new Integer(driver.findElement(By.cssSelector("table tbody tr:last-child td:first-child")).getText());
         assertEquals(actual, expected);
     }

@@ -5,7 +5,6 @@
         <test name = "HospitalTest">
             <classes>
                 <class name="Tests.hospitals.HospitalTest"></class>
-
             </classes>
         </test>
 </suite>
