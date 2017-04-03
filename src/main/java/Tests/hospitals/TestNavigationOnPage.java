@@ -35,4 +35,16 @@ public class TestNavigationOnPage {
         driver.findElement(By.cssSelector(".form-control option[value=\"" + count + "\"]")).click();
         driver.findElement(By.id("searchButton")).click();
     }
+
+    public static void searchByEmail(WebDriver driver, String value) {
+        new Select(driver.findElement(By.id("searchBy"))).selectByVisibleText("Email");
+        driver.findElement(By.id("search")).clear();
+        driver.findElement(By.id("search")).sendKeys(value);
+        driver.findElement(By.id("searchButton")).click();
+    }
+
+    public static void logOut(WebDriver driver) {
+
+    }
+
 }

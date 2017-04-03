@@ -25,6 +25,7 @@ public class Parser {
             }
 
             if (driver.findElements(By.id("nextPage")).size() > 0) {
+                Thread.sleep(1000);
                 driver.findElement(By.id("nextPage")).click();
                 Thread.sleep(1000);
             }

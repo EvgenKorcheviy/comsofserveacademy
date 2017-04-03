@@ -59,12 +59,23 @@ public class HospitalTest extends Tests.hospitals.BeforeTest {
             TestNavigationOnPage.chooseRole(driver, "PATIENT");
             List<String> actual = Parser.parseEmailsFromTable(driver);
             assertEquals(actual, expected);
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
+    @Test(priority = 4)
+    public void isSearchFunctional() throws InterruptedException {
 
+        Thread.sleep(2000);
+        TestNavigationOnPage.toFirstPage(driver);
+        List<String> actual;
+        TestNavigationOnPage.searchByEmail(driver, "admin");
+        actual = Parser.parseEmailsFromTable(driver);
+        List<String> expected = testDAO.getUsersByEmailFromDatabase("admin");
+        assertEquals(actual, expected);
+    }
 
     /*
     @AfterClass(alwaysRun = true)

@@ -112,6 +112,22 @@ public class TestDAO {
         return null;
     }
 
+    public List<String> getUsersByEmailFromDatabase(String email) {
+        try {
+            Statement statement = connection.createStatement();
+            List<String> result = new LinkedList<>();
+            ResultSet resultSet = statement.executeQuery("SELECT email from users");
+            while (resultSet.next()) {
+                if (resultSet.getString("email").contains(email)) result.add(resultSet.getString("email"));
+            }
+            return result;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
     /*public static List<User> getUsersFromDatabase(){
         return null;
     }*/
