@@ -4,7 +4,6 @@ import org.openqa.selenium.*;
 import org.testng.annotations.*;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.AssertJUnit.fail;
@@ -15,27 +14,54 @@ import static org.testng.AssertJUnit.fail;
 public class HospitalTest extends Tests.hospitals.BeforeTest {
 
     @Parameters({"url", "countOfUsers"})
-    @Test
+    @Test(priority = 1)
     private void isPopUpUsersPerPageFunctional(String url, String countOfUsers) {
         TestNavigationOnPage.toAdminPage(url, driver);
 
         int expected = new Integer(countOfUsers);
         if (testDAO.getCountOfUsers() < expected) expected = testDAO.getCountOfUsers();
 
-        driver.findElement(By.id("userPerPage")).click();
-        driver.findElement(By.cssSelector(".form-control option[value=\"" + expected + "\"]")).click();
-        driver.findElement(By.id("searchButton")).click();
+        TestNavigationOnPage.chooseCountOnPage(driver, expected);
+
         int actual = new Integer(driver.findElement(By.cssSelector("table tbody tr:last-child td:first-child")).getText());
         assertEquals(actual, expected);
     }
 
 
-    @Parameters("url")
-    @Test
-    public void isTableDataCorrect(String url) {
-        List<String> actual  = Parser.parseEmailsFromTable(driver);
-        List<String> expected = Parser.parseInfoFromDatabase();
-        assertEquals(actual, expected);
+    @Test(priority = 2)
+    public void isTableDataCorrect() {
+        try {
+            Thread.sleep(1000);
+            List<String> actual  = Parser.parseEmailsFromTable(driver);
+            List<String> expected = Parser.getAllEmailsFromDatabase();
+            assertEquals(actual, expected);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    @Test(priority = 3)
+    public void isPopUpRoleFunctional(){
+        try {
+            Thread.sleep(2000);
+            //List<String> expected = testDAO.getUsersByRoleFromDatabase("ADMIN");
+
+            /*TestNavigationOnPage.toFirstPage(driver);
+            TestNavigationOnPage.chooseRole(driver, "ADMIN");
+            List<String> actual = Parser.parseEmailsFromTable(driver);
+            assertEquals(actual, expected);*/
+
+            Thread.sleep(2000);
+            List<String> expected = testDAO.getUsersByRoleFromDatabase("PATIENT");
+            TestNavigationOnPage.toFirstPage(driver);
+            TestNavigationOnPage.chooseRole(driver, "PATIENT");
+            List<String> actual = Parser.parseEmailsFromTable(driver);
+            assertEquals(actual, expected);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 

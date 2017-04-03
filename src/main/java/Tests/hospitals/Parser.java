@@ -15,17 +15,18 @@ import java.util.concurrent.TimeUnit;
  */
 public class Parser {
 
-    public static List<String> parseEmailsFromTable(WebDriver driver){
+    public static List<String> parseEmailsFromTable(WebDriver driver) throws InterruptedException {
         List<String> result = new LinkedList<>();
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        Thread.sleep(1000);
         while (true) {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("table tbody tr td")));
             for (int i = 1; i <= driver.findElements(By.cssSelector("table tbody tr")).size(); i++) {
+                if(!result.contains(driver.findElement(By.cssSelector("tbody tr:nth-child(" + i + ") td:nth-child(2)")).getText()))
                 result.add(driver.findElement(By.cssSelector("tbody tr:nth-child(" + i + ") td:nth-child(2)")).getText());
             }
 
             if (driver.findElements(By.id("nextPage")).size() > 0) {
                 driver.findElement(By.id("nextPage")).click();
+                Thread.sleep(1000);
             }
             else break;
         }
@@ -34,8 +35,11 @@ public class Parser {
 
     }
 
-    public static List<String> parseInfoFromDatabase(){
+
+
+    public static List<String> getAllEmailsFromDatabase(){
         TestDAO testDAO = new TestDAO();
         return testDAO.getUsersEmailsFromDatabase();
     }
+
 }

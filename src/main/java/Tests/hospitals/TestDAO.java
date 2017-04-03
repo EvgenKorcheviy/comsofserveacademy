@@ -39,9 +39,7 @@ public class TestDAO {
         }
     }
 
-
-
-
+    
     private void getProperties() {
 
         Properties properties = new Properties();
@@ -81,9 +79,6 @@ public class TestDAO {
     }
 
 
-    public List<String> getUsersFromTable(){
-        return null;
-    }
     public List<String> getUsersEmailsFromDatabase() {
         List<String> result = new LinkedList<>();
         try {
@@ -97,6 +92,25 @@ public class TestDAO {
         return null;
     }
 
+    public List<String> getUsersByRoleFromDatabase(String role) {
+        List<String> result = new LinkedList<>();
+        try {
+            Statement statement = connection.createStatement();
+
+            ResultSet roleId = statement.executeQuery("SELECT id FROM role WHERE type = \'" + role + "\'");
+            String idOfRole = "";
+            while (roleId.next()) idOfRole = roleId.getString("id");
+            ResultSet resultSet = statement.executeQuery("SELECT users.email FROM users INNER JOIN role_users ON users.id = " +
+                    "role_users.users_id WHERE role_users.role_id = " + idOfRole + "ORDER BY email");
+            while (resultSet.next()) {
+                result.add(resultSet.getString(1));
+            }
+            return result;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     /*public static List<User> getUsersFromDatabase(){
         return null;

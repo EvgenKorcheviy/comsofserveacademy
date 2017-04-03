@@ -2,6 +2,7 @@ package Tests.hospitals;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  * Created by Evgen on 31.03.2017.
@@ -18,4 +19,20 @@ public class TestNavigationOnPage {
 
     }
 
+    public static void toFirstPage(WebDriver driver) {
+        driver.get("https://localhost:8443/HospitalSeeker/admin/users?status=true&page=1&sort=email&asc=true");
+    }
+
+    public static void chooseRole(WebDriver driver, String role) throws InterruptedException {
+
+        new Select(driver.findElement(By.id("pref-roleby"))).selectByVisibleText(role);
+        driver.findElement(By.id("searchButton")).click();
+
+    }
+
+    public static void chooseCountOnPage(WebDriver driver, int count) {
+        driver.findElement(By.id("userPerPage")).click();
+        driver.findElement(By.cssSelector(".form-control option[value=\"" + count + "\"]")).click();
+        driver.findElement(By.id("searchButton")).click();
+    }
 }
