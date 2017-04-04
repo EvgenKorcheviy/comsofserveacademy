@@ -47,4 +47,17 @@ public class TestNavigationOnPage {
 
     }
 
+    public static void searchByEmailAndRole(WebDriver driver, String email, String role) {
+        new Select(driver.findElement(By.id("pref-roleby"))).selectByVisibleText(role);
+        new Select(driver.findElement(By.id("searchBy"))).selectByVisibleText("Email");
+        driver.findElement(By.id("search")).clear();
+        driver.findElement(By.id("search")).sendKeys(email);
+        driver.findElement(By.id("searchButton")).click();
+    }
+
+    public static void openViewWindow(WebDriver driver) {
+        TestNavigationOnPage.toFirstPage(driver);
+
+    }
+
 }

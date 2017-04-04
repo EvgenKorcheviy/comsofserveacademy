@@ -13,12 +13,17 @@ import static org.testng.AssertJUnit.fail;
  */
 public class HospitalTest extends Tests.hospitals.BeforeTest {
 
+    private static final String USER_ROLE = "PATIENT";
+    private static final String EMAIL = ".ua";
+
+
+
     @Parameters({"url", "countOfUsers"})
     @Test(priority = 1)
-    private void isPopUpUsersPerPageFunctional(String url, String countOfUsers) {
+    private void TestPopUpUsersPerPage(String url, String countOfUsers) {
         TestNavigationOnPage.toAdminPage(url, driver);
 
-        int expected = new Integer(countOfUsers);
+        int expected = Integer.parseInt(countOfUsers);
         if (testDAO.getCountOfUsers() < expected) expected = testDAO.getCountOfUsers();
 
         TestNavigationOnPage.chooseCountOnPage(driver, expected);
@@ -29,7 +34,7 @@ public class HospitalTest extends Tests.hospitals.BeforeTest {
 
 
     @Test(priority = 2)
-    public void isTableDataCorrect() {
+    public void TestTableDataCorrect() {
         try {
             Thread.sleep(1000);
             List<String> actual  = Parser.parseEmailsFromTable(driver);
@@ -43,20 +48,13 @@ public class HospitalTest extends Tests.hospitals.BeforeTest {
 
 
     @Test(priority = 3)
-    public void isPopUpRoleFunctional(){
+    public void TestPopUpRole(){
         try {
             Thread.sleep(2000);
-            //List<String> expected = testDAO.getUsersByRoleFromDatabase("ADMIN");
 
-            /*TestNavigationOnPage.toFirstPage(driver);
-            TestNavigationOnPage.chooseRole(driver, "ADMIN");
-            List<String> actual = Parser.parseEmailsFromTable(driver);
-            assertEquals(actual, expected);*/
-
-            Thread.sleep(2000);
-            List<String> expected = testDAO.getUsersByRoleFromDatabase("PATIENT");
+            List<String> expected = testDAO.getUsersByRoleFromDatabase(USER_ROLE);
             TestNavigationOnPage.toFirstPage(driver);
-            TestNavigationOnPage.chooseRole(driver, "PATIENT");
+            TestNavigationOnPage.chooseRole(driver, USER_ROLE);
             List<String> actual = Parser.parseEmailsFromTable(driver);
             assertEquals(actual, expected);
 
@@ -66,16 +64,36 @@ public class HospitalTest extends Tests.hospitals.BeforeTest {
     }
 
     @Test(priority = 4)
-    public void isSearchFunctional() throws InterruptedException {
+    public void TestSearchByEmail() throws InterruptedException {
 
         Thread.sleep(2000);
         TestNavigationOnPage.toFirstPage(driver);
         List<String> actual;
-        TestNavigationOnPage.searchByEmail(driver, "admin");
+        TestNavigationOnPage.searchByEmail(driver, EMAIL);
         actual = Parser.parseEmailsFromTable(driver);
-        List<String> expected = testDAO.getUsersByEmailFromDatabase("admin");
+        List<String> expected = testDAO.getUsersByEmailFromDatabase(EMAIL);
         assertEquals(actual, expected);
     }
+
+    @Test(priority = 5)
+    public void TestSearchByEmailAndRole() throws InterruptedException {
+        Thread.sleep(2000);
+        TestNavigationOnPage.toFirstPage(driver);
+        List<String> actual;
+        TestNavigationOnPage.searchByEmailAndRole(driver, EMAIL, USER_ROLE);
+        actual = Parser.parseEmailsFromTable(driver);
+        List<String> expected = testDAO.getUsersByEmailAndRoleFromDatabase(EMAIL, USER_ROLE);
+        assertEquals(actual, expected);
+    }
+
+    @Test(priority = 6)
+    public void TestView() throws InterruptedException {
+        Thread.sleep(2000);
+        TestNavigationOnPage.toFirstPage(driver);
+
+    }
+
+
 
     /*
     @AfterClass(alwaysRun = true)

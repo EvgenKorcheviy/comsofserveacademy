@@ -116,9 +116,32 @@ public class TestDAO {
         try {
             Statement statement = connection.createStatement();
             List<String> result = new LinkedList<>();
-            ResultSet resultSet = statement.executeQuery("SELECT email from users");
+            ResultSet resultSet = statement.executeQuery("SELECT email from users ORDER BY email");
             while (resultSet.next()) {
                 if (resultSet.getString("email").contains(email)) result.add(resultSet.getString("email"));
+            }
+            return result;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<String> getUsersByEmailAndRoleFromDatabase(String email, String role) {
+        try {
+            Statement statement = connection.createStatement();
+            List<String> usersWithRole = new LinkedList<>();
+            ResultSet roleId = statement.executeQuery("SELECT id FROM role WHERE type = \'" + role + "\'");
+            String idOfRole = "";
+            while (roleId.next()) idOfRole = roleId.getString("id");
+            ResultSet resultSet = statement.executeQuery("SELECT users.email FROM users INNER JOIN role_users ON users.id = " +
+                    "role_users.users_id WHERE role_users.role_id = " + idOfRole + "ORDER BY email");
+            while (resultSet.next()) {
+                usersWithRole.add(resultSet.getString(1));
+            }
+            List<String> result = new LinkedList<>();
+            for (String s : usersWithRole) {
+                if (s.contains(email)) result.add(s);
             }
             return result;
         } catch (SQLException e) {
